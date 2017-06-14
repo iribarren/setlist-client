@@ -10,8 +10,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 
 
-$client = new SetlistClient\Client();
+$client = new SetlistClient\Client("https://api.setlist.fm/rest/0.1/");
 
-$client->artist->hello();
+$result = $client->artist->searchByName("Metallica");
 
-echo "pues chachi";
+print_r($result);
+
