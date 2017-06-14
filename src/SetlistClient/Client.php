@@ -2,7 +2,7 @@
 
 namespace SetlistClient;
 
-use SetlistClient\Api\Artist;
+use SetlistClient\Artist;
 
 /**
  * Description of Client
@@ -14,8 +14,10 @@ class Client {
         'artist' => 'Artist',
     ];
 
+    private $apis = [];
 
-    public function __construct($url, $apikeyOrUsername, $pass = null)
+
+    public function __construct()
     {
     }
 
@@ -48,7 +50,7 @@ class Client {
         if (isset($this->apis[$name])) {
             return $this->apis[$name];
         }
-        $class = 'SetlistClient\Api\\'.$this->classes[$name];
+        $class = 'SetlistClient\\'.$this->classes[$name];
         $this->apis[$name] = new $class($this);
 
         return $this->apis[$name];

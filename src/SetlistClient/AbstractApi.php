@@ -1,6 +1,6 @@
 <?php
 
-namespace SetlistClient\Api;
+namespace SetlistClient;
 
 use SetlistClient\Client;
 
