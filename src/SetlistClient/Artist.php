@@ -16,7 +16,7 @@ class Artist extends AbstractApi {
     }
 
     public function searchByName($name) {
-        return $this->get("search/artists/" . $name);
+        return $this->get("search/artists?artistName=" . $name);
     }
 
 }

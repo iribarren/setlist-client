@@ -146,8 +146,8 @@ class Client {
 //        }
 
         // Set the HTTP request headers
-        $httpHeader = $this->setHttpHeader($path);
-        $this->setCurlOption(CURLOPT_HTTPHEADER, $httpHeader);
+        //$httpHeader = $this->setHttpHeader($path);
+        //$this->setCurlOption(CURLOPT_HTTPHEADER, $httpHeader);
 
         $this->unsetCurlOption(CURLOPT_CUSTOMREQUEST);
         $this->unsetCurlOption(CURLOPT_POST);
