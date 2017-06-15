@@ -17,7 +17,7 @@ class Artist extends AbstractApi
         if ($mbid == '') {
             throw new Exception("No search parameters given\n");
         }
-        
+
         return $this->get("artist/" . $mbid . ".json");
     }
 
@@ -42,6 +42,12 @@ class Artist extends AbstractApi
 
         $query = http_build_query($params);
 
-        return $this->get($path . "?" . $query);
+        if ($query != '') {
+            $path .= "?".$query;
+        }
+
+        echo $path . PHP_EOL;
+
+        return $this->get($path);
     }
 }

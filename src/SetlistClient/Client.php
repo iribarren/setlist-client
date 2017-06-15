@@ -3,6 +3,7 @@
 namespace SetlistClient;
 
 use SetlistClient\Artist;
+use SetlistClient\City;
 
 /**
  * Description of Client
@@ -17,6 +18,7 @@ class Client {
 
     private $classes = [
         'artist' => 'Artist',
+        'city' => 'City'
     ];
 
     private $apis = [];
