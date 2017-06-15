@@ -1,7 +1,7 @@
 <?php
-
 namespace SetlistClient;
 
+use Exception;
 use SetlistClient\AbstractApi;
 
 /**
@@ -9,14 +9,39 @@ use SetlistClient\AbstractApi;
  *
  * @author airibarren
  */
-class Artist extends AbstractApi {
+class Artist extends AbstractApi
+{
 
-    public function getByMbid($mbid) {
-        return $this->get("artist/" . $mbid);
+    public function getByMbid($mbid = '', $json = true)
+    {
+        if ($mbid == '') {
+            throw new Exception("No search parameters given\n");
+        }
+        
+        return $this->get("artist/" . $mbid . ".json");
     }
 
-    public function searchByName($name) {
-        return $this->get("search/artists?artistName=" . $name);
-    }
+    public function search($mbid = '', $tmid = '', $name = '', $page = '', $json = true)
+    {
+        if ($mbid == '' && $tmid == '' && $name == '') {
+            throw new Exception("No search parameters given\n");
+        }
 
+        $path = "search/artists";
+
+        if ($json) {
+            $path .= ".json";
+        }
+
+        $params = array(
+            'mbid' => $mbid,
+            'tmid' => $tmid,
+            'artistName' => $name,
+            'p' => $page,
+        );
+
+        $query = http_build_query($params);
+
+        return $this->get($path . "?" . $query);
+    }
 }

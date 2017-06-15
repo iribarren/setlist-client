@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 /*
@@ -12,7 +11,16 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $client = new SetlistClient\Client("https://api.setlist.fm/rest/0.1/");
 
-$result = $client->artist->searchByName("Metallica");
-
+try {
+    $result = $client->artist->search('','','Iron Maiden');
+    print_r($result);
+    $result = $client->artist->getByMbid();
 print_r($result);
+} catch (Exception $e) {
+    die($e->getMessage());
+}
+
+
+
+
 
