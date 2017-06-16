@@ -46,8 +46,6 @@ class Artist extends AbstractApi
             $path .= "?".$query;
         }
 
-        echo $path . PHP_EOL;
-
         return $this->get($path);
     }
 }

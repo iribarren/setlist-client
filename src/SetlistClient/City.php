@@ -17,7 +17,13 @@ class City extends AbstractApi{
             throw new Exception("No search parameters given\n");
         }
 
-        return $this->get("city/" . $geoId . ".json");
+        $path = "city/" . $geoId;
+
+        if ($json){
+            $path .= ".json";
+        }
+
+        return $this->get($path);
     }
 
     public function search($name = '', $stateCode = '', $state = '', $country = '', $page = '', $lang = '',$json = true)

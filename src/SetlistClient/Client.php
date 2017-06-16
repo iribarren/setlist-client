@@ -20,6 +20,7 @@ class Client {
         'artist' => 'Artist',
         'city' => 'City',
         'country' => 'Country',
+        'setlist' => 'Setlist'
     ];
 
     private $apis = [];
