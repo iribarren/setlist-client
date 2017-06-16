@@ -80,5 +80,4 @@ class Setlist extends AbstractApi {
 
         return $this->get($path);
     }
-
 }
