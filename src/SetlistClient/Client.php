@@ -18,7 +18,8 @@ class Client {
 
     private $classes = [
         'artist' => 'Artist',
-        'city' => 'City'
+        'city' => 'City',
+        'country' => 'Country',
     ];
 
     private $apis = [];

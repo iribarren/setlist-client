@@ -20,6 +20,8 @@ try {
     print_r($result);
     $result = $client->city->getByGeoId("3104499");
     print_r($result);
+    $result = $client->country->search();
+    print_r($result);
 } catch (Exception $e) {
     die($e->getMessage());
 }
