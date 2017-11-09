@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SetlistClient": "src/"
+            "SetlistClient\\": "src/"
         }
     }
 }
