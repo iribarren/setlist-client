@@ -22,8 +22,8 @@ try {
 //  print_r($result);
 //  $result = $client->country->search();
 //  print_r($result);
-    $result = $client->setlist->search("ca891d65-d9b0-4258-89f7-e6ba29d83767");
-    print_r($result);
+//    $result = $client->setlist->search("ca891d65-d9b0-4258-89f7-e6ba29d83767");
+//    print_r($result);
     
 } catch (Exception $e) {
     die($e->getMessage());
