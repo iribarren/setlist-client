@@ -130,28 +130,10 @@ class Client {
         $this->setCurlOption(CURLOPT_HEADER, 0);
         $this->setCurlOption(CURLOPT_RETURNTRANSFER, 1);
 
-//        // HTTP Basic Authentication
-//        if ($this->apikeyOrUsername && $this->useHttpAuth) {
-//            if (null === $this->pass) {
-//                $this->setCurlOption(CURLOPT_USERPWD, $this->apikeyOrUsername.':'.rand(100000, 199999));
-//            } else {
-//                $this->setCurlOption(CURLOPT_USERPWD, $this->apikeyOrUsername.':'.$this->pass);
-//            }
-//            $this->setCurlOption(CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//        }
-
         // Host and request options
         $this->setCurlOption(CURLOPT_URL, $this->url.$path);
-//        $this->setCurlOption(CURLOPT_PORT, $this->getPort());
-//        if (80 !== $this->getPort()) {
-//            $this->setCurlOption(CURLOPT_SSL_VERIFYPEER, (int) $this->checkSslCertificate);
-//            $this->setCurlOption(CURLOPT_SSL_VERIFYHOST, (int) $this->checkSslHost);
-//            $this->setCurlOption(CURLOPT_SSLVERSION, $this->sslVersion);
-//        }
 
-        // Set the HTTP request headers
-        //$httpHeader = $this->setHttpHeader($path);
-        //$this->setCurlOption(CURLOPT_HTTPHEADER, $httpHeader);
+
 
         $this->unsetCurlOption(CURLOPT_CUSTOMREQUEST);
         $this->unsetCurlOption(CURLOPT_POST);
