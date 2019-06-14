@@ -11,45 +11,33 @@ use SetlistClient\AbstractApi;
  */
 class Setlist extends AbstractApi {
 
-    public function getById($id = '', $json = true) {
+    public function getById($id = '') {
         if ($geoId == '') {
             throw new Exception("No search parameters given\n");
         }
 
         $path = "setlist/" . $id;
 
-        if ($json) {
-            $path .= ".json";
-        }
-
         return $this->get($path);
     }
 
-    public function getVersion($version = '', $json = true) {
+    public function getVersion($version = '') {
         if ($version == '') {
             throw new Exception("No search parameters given\n");
         }
 
         $path = "setlist/version/" . $version;
 
-        if ($json) {
-            $path .= ".json";
-        }
-
         return $this->get($path);
     }
 
-    public function search($artistMbid = '', $artistTmid = '', $artistName = '', $tour = '', $date = '', $year = '', $lastFm = '', $lastUpdated = '', $venueId = '', $venueName = '', $cityId = '', $cityName = '', $stateCode = '', $state = '', $countryCo = '', $page = '', $lang = '', $json = true) {
+    public function search($artistMbid = '', $artistTmid = '', $artistName = '', $tour = '', $date = '', $year = '', $lastFm = '', $lastUpdated = '', $venueId = '', $venueName = '', $cityId = '', $cityName = '', $stateCode = '', $state = '', $countryCo = '', $page = 1, $lang = '') {
 
         if ($artistMbid == '' && $artistTmid == '' && $artistName == '' && $tour == '' && $date == '' && $year == '' && $lastFm == '' && $lastUpdated == '' && $venueId == '' && $venueName == '' && $cityId == '' && $cityName == '' && $stateCode == '' && $state == '' && $countryCo == '') {
             throw new Exception("No search parameters given\n");
         }
 
         $path = "search/setlists";
-
-        if ($json) {
-            $path .= ".json";
-        }
 
         $params = ['artistMbid' => $artistMbid,
             'artistTmid' => $artistTmid,
@@ -75,8 +63,6 @@ class Setlist extends AbstractApi {
         if ($query != '') {
             $path .= "?" . $query;
         }
-
-        echo $path . PHP_EOL;
 
         return $this->get($path);
     }

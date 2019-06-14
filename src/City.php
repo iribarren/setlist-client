@@ -11,7 +11,7 @@ use SetlistClient\AbstractApi;
  * @author airibarren
  */
 class City extends AbstractApi{
-    public function getByGeoId($geoId = '', $json = true)
+    public function getByGeoId($geoId = '')
     {
         if ($geoId == '') {
             throw new Exception("No search parameters given\n");
@@ -19,14 +19,10 @@ class City extends AbstractApi{
 
         $path = "city/" . $geoId;
 
-        if ($json){
-            $path .= ".json";
-        }
-
         return $this->get($path);
     }
 
-    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = '', $lang = '',$json = true)
+    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = 1, $lang = '')
     {
 
         if ($name == '' && $stateCode == '' && $state == '' && $country == '') {
@@ -34,10 +30,6 @@ class City extends AbstractApi{
         }
 
         $path = "search/cities";
-
-        if ($json) {
-            $path .= ".json";
-        }
 
         $params = array(
             'name' => $name,
@@ -53,8 +45,6 @@ class City extends AbstractApi{
         if ($query != '') {
             $path .= "?".$query;
         }
-
-        echo $path . PHP_EOL;
 
         return $this->get($path);
     }

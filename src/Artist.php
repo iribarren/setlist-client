@@ -12,26 +12,22 @@ use SetlistClient\AbstractApi;
 class Artist extends AbstractApi
 {
 
-    public function getByMbid($mbid = '', $json = true)
+    public function getByMbid($mbid = '')
     {
         if ($mbid == '') {
             throw new Exception("No search parameters given\n");
         }
 
-        return $this->get("artist/" . $mbid . ".json");
+        return $this->get("artist/" . $mbid);
     }
 
-    public function search($mbid = '', $tmid = '', $name = '', $page = '', $json = true)
+    public function search($mbid = '', $tmid = '', $name = '', $page = 1)
     {
         if ($mbid == '' && $tmid == '' && $name == '') {
             throw new Exception("No search parameters given\n");
         }
 
         $path = "search/artists";
-
-        if ($json) {
-            $path .= ".json";
-        }
 
         $params = array(
             'mbid' => $mbid,

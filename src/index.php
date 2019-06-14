@@ -7,9 +7,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
  * and open the template in the editor.
  */
 
+$url = "https://api.setlist.fm/rest/1.0/";
+$apiKey = "YOUR_SETLISTFM_API_KEY";
+$responseFormat = 'application/json';
 
-
-$client = new SetlistClient\Client("https://api.setlist.fm/rest/0.1/");
+$client = new SetlistClient\Client($url, $responseFormat, $apiKey);
 
 try {
     $result = $client->artist->search('','','Iron Maiden');

@@ -11,12 +11,8 @@ use SetlistClient\AbstractApi;
  */
 class Country extends AbstractApi{
 
-    public function search($lang = '', $json = true) {
+    public function search($lang = '') {
         $path = "search/countries";
-
-        if ($json) {
-            $path .= ".json";
-        }
 
         $params = array(
                 //'l' => $lang, it seems not to be working yet
@@ -27,8 +23,6 @@ class Country extends AbstractApi{
         if ($query != '') {
             $path .= "?" . $query;
         }
-
-        echo $path . PHP_EOL;
 
         return $this->get($path);
     }

@@ -13,6 +13,8 @@ use SetlistClient\City;
 class Client {
 
     private $url;
+    private $apiKey;
+    private $responseFormat;
 
     private $curlOptions = [];
 
@@ -26,9 +28,11 @@ class Client {
     private $apis = [];
 
 
-    public function __construct($url)
+    public function __construct($url, $responseFormat, $apiKey)
     {
         $this->url = $url;
+        $this->responseFormat = $responseFormat;
+        $this->apiKey = $apiKey;
     }
 
     /**
@@ -75,11 +79,11 @@ class Client {
      */
     public function get($path)
     {
-        if (false === $json = $this->runRequest($path, 'GET')) {
+        if (false === $response = $this->runRequest($path, 'GET')) {
             return false;
         }
 
-        return $json;
+        return $response;
     }
 
     /**
@@ -128,6 +132,13 @@ class Client {
         // General cURL options
         $this->setCurlOption(CURLOPT_VERBOSE, 0);
         $this->setCurlOption(CURLOPT_HEADER, 0);
+
+        $headers = [
+            'x-api-key: ' . $this->apiKey,
+            'Accept : ' . $this->responseFormat,
+        ];
+        $this->setCurlOption(CURLOPT_HTTPHEADER, $headers);
+        
         $this->setCurlOption(CURLOPT_RETURNTRANSFER, 1);
 
         // Host and request options
