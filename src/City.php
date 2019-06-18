@@ -22,7 +22,7 @@ class City extends AbstractApi{
         return $this->get($path);
     }
 
-    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = 1, )
+    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = 1 )
     {
 
         if ($name == '' && $stateCode == '' && $state == '' && $country == '') {

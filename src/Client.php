@@ -135,7 +135,7 @@ class Client {
 
         $headers = [
             'x-api-key: ' . $this->apiKey,
-            'Accept : ' . $this->responseFormat,
+            'Accept: ' . $this->responseFormat,
         ];
         $this->setCurlOption(CURLOPT_HTTPHEADER, $headers);
         
