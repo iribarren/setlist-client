@@ -11,12 +11,8 @@ use SetlistClient\AbstractApi;
  */
 class Country extends AbstractApi{
 
-    public function search($lang = '') {
+    public function search() {
         $path = "search/countries";
-
-        $params = array(
-                //'l' => $lang, it seems not to be working yet
-        );
 
         $query = http_build_query($params);
 

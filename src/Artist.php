@@ -21,7 +21,7 @@ class Artist extends AbstractApi
         return $this->get("artist/" . $mbid);
     }
 
-    public function search($mbid = '', $tmid = '', $name = '', $page = 1)
+    public function search($mbid = '', $tmid = '', $name = '', $page = 1, $sort = 'relevance')
     {
         if ($mbid == '' && $tmid == '' && $name == '') {
             throw new Exception("No search parameters given\n");
@@ -29,12 +29,13 @@ class Artist extends AbstractApi
 
         $path = "search/artists";
 
-        $params = array(
+        $params = [
             'mbid' => $mbid,
             'tmid' => $tmid,
             'artistName' => $name,
             'p' => $page,
-        );
+            'sort' => $sort,
+        ];
 
         $query = http_build_query($params);
 

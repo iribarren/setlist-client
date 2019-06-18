@@ -22,7 +22,7 @@ class City extends AbstractApi{
         return $this->get($path);
     }
 
-    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = 1, $lang = '')
+    public function search($name = '', $stateCode = '', $state = '', $country = '', $page = 1, )
     {
 
         if ($name == '' && $stateCode == '' && $state == '' && $country == '') {
@@ -31,14 +31,14 @@ class City extends AbstractApi{
 
         $path = "search/cities";
 
-        $params = array(
+        $params = [
             'name' => $name,
-            'stateCode' => $state,
             'state' => $state,
+            'stateCode' => $stateCode,
             'country' => $country,
             'p' => $page,
-            //'l' => $lang, it seems not to be working yet
-        );
+            
+        ];
 
         $query = http_build_query($params);
 
