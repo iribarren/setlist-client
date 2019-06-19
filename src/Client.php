@@ -48,6 +48,60 @@ class Client {
     {
         return $this->api($name);
     }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+    
+    /**
+     * 
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getResponseFormat()
+    {
+        return $this->responseFormat;
+    }
+    
+    /**
+     * 
+     * @param string $responseFormat
+     */
+    public function setResponseFormat($responseFormat)
+    {
+        $this->responseFormat = $responseFormat; 
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
+    }
+    
+    /**
+     * 
+     * @param string $apiKey
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
 
     /**
      * @param string $name
