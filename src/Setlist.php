@@ -12,7 +12,7 @@ use SetlistClient\AbstractApi;
 class Setlist extends AbstractApi {
 
     public function getById($id = '') {
-        if ($geoId == '') {
+        if ($id == '') {
             throw new Exception("No search parameters given\n");
         }
 
